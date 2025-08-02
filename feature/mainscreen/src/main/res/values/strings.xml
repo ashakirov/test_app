@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="description">Запрос определенного количества точек.\nМожно запросить от 1 до 1000 точек</string>
+    <string name="btn_text">Поехали</string>
+</resources>
