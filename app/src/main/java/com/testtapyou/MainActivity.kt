@@ -5,6 +5,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.createGraph
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.fragment
+import com.testtapyou.network.MainScreenFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +20,21 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        initNavigation()
+    }
+
+    private fun initNavigation() {
+        val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = host.navController
+
+        navController.graph = navController.createGraph(
+            startDestination = "mainscreen"
+        ) {
+            fragment<MainScreenFragment>("mainscreen") {
+                label = "Profile"
+            }
         }
     }
 }

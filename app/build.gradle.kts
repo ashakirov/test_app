@@ -37,4 +37,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.navigation.ui)
+
+    implementation(project(":feature:mainscreen"))
 }
