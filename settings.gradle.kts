@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TestTapYou"
 include(":app")
- 
+include(":core:network")
