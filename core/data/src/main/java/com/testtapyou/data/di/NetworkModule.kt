@@ -1,8 +1,8 @@
-package com.testtapyou.network.di
+package com.testtapyou.data.di
 
 import android.util.Log
-import com.testtapyou.network.NetworkDataSource
-import com.testtapyou.network.retrofit.RetrofitNetwork
+import com.testtapyou.data.network.NetworkDataSource
+import com.testtapyou.data.network.retrofit.RetrofitNetwork
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

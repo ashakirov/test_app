@@ -1,4 +1,4 @@
-package com.testtapyou.network.data
+package com.testtapyou.data.network.model
 
 import com.google.gson.annotations.SerializedName
 

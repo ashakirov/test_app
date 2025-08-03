@@ -1,6 +1,6 @@
-package com.testtapyou.network.retrofit
+package com.testtapyou.data.network.retrofit
 
-import com.testtapyou.network.data.PointsResponse
+import com.testtapyou.data.network.model.PointsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

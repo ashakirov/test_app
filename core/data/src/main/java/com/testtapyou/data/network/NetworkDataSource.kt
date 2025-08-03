@@ -1,6 +1,6 @@
-package com.testtapyou.network
+package com.testtapyou.data.network
 
-import com.testtapyou.network.data.Point
+import com.testtapyou.data.network.model.Point
 
 interface NetworkDataSource {
     suspend fun getPoints(count: Int): Result<List<Point>>
