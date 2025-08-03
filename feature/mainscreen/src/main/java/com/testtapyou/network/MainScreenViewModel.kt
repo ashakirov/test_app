@@ -23,8 +23,9 @@ class MainScreenViewModel @Inject constructor(
             if (input.isNotEmpty() && input.isDigitsOnly()) {
                 val result = repository.fetchPoints(input.toInt())
                 if (result.isSuccess) {
-                    val list = result.getOrThrow()
-                    val size = list.size
+                    val points = result.getOrThrow()
+                    repository.clear()
+                    repository.save(points)
                 } else {
                     val message = result.exceptionOrNull()?.message ?: "error"
                     _event.emit(UiEvent.ShowToast(message))

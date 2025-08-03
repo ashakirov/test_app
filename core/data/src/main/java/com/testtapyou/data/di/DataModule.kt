@@ -1,5 +1,6 @@
 package com.testtapyou.data.di
 
+import com.testtapyou.data.database.PointsDataStore
 import com.testtapyou.data.network.NetworkDataSource
 import com.testtapyou.data.repository.PointsRepository
 import com.testtapyou.data.repository.PointsRepositoryImpl
@@ -16,8 +17,9 @@ object DataModule {
     @Provides
     @ViewModelScoped
     fun providePointsRepository(
-        remoteDataSource: NetworkDataSource
+        remoteDataSource: NetworkDataSource,
+        localDataStore: PointsDataStore
     ): PointsRepository {
-        return PointsRepositoryImpl(remoteDataSource)
+        return PointsRepositoryImpl(remoteDataSource, localDataStore)
     }
 }

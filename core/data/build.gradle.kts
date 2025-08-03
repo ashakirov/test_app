@@ -37,4 +37,8 @@ dependencies {
     implementation(libs.okhttp.logging.interceptor)
 
     implementation(project(":core:utils"))
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
 }
