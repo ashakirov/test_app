@@ -3,7 +3,7 @@ package com.testtapyou.feature.mainscreen
 import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.testtapyou.data.repository.PointsRepository
+import com.testtapyou.domain.LoadPointsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainScreenViewModel @Inject constructor(
-    val repository: PointsRepository
+    private val loadPointsUseCase: LoadPointsUseCase
 ) : ViewModel() {
 
     private val _event = MutableSharedFlow<UiEvent>()
@@ -21,11 +21,8 @@ class MainScreenViewModel @Inject constructor(
     fun buttonGoPressed(input: String) {
         viewModelScope.launch {
             if (input.isNotEmpty() && input.isDigitsOnly()) {
-                val result = repository.fetchPoints(input.toInt())
+                val result = loadPointsUseCase.execute(input.toInt())
                 if (result.isSuccess) {
-                    val points = result.getOrThrow()
-                    repository.clear()
-                    repository.save(points)
                     _event.emit(UiEvent.NavigateDetails)
                 } else {
                     val message = result.exceptionOrNull()?.message ?: "error"

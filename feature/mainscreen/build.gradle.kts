@@ -37,4 +37,5 @@ dependencies {
     implementation(libs.androidx.navigation)
 
     implementation(project(":core:data"))
+    implementation(project(":core:domain"))
 }
