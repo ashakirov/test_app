@@ -21,7 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "TestTapYou"
 include(":app")
-include(":core:network")
+include(":core:data")
 include(":core:utils")
 include(":feature:mainscreen")
 include(":feature:detailscreen")

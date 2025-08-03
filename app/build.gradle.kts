@@ -46,5 +46,5 @@ dependencies {
 
     implementation(project(":feature:mainscreen"))
     implementation(project(":feature:detailscreen"))
-    implementation(project(":core:network"))
+    implementation(project(":core:data"))
 }
