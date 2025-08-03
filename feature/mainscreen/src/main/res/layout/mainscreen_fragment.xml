@@ -8,9 +8,10 @@
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/description_margin"
+        android:layout_marginTop="@dimen/description_margin_top"
+        android:layout_marginLeft="@dimen/description_margin"
+        android:layout_marginRight="@dimen/description_margin"
         android:text="@string/description"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -1,4 +1,4 @@
-package com.testtapyou.network
+package com.testtapyou.feature.mainscreen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.testtapyou.mainscreen.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -46,7 +47,9 @@ class MainScreenFragment : Fragment() {
                         is UiEvent.ShowToast -> {
                             Toast.makeText(requireContext(), event.message, Toast.LENGTH_SHORT).show()
                         }
-                        UiEvent.NavigateDetails -> {}
+                        UiEvent.NavigateDetails -> {
+                            findNavController().navigate("detail")
+                        }
                     }
                 }
             }

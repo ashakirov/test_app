@@ -1,4 +1,4 @@
-package com.testtapyou.network
+package com.testtapyou.feature.mainscreen
 
 import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModel
@@ -26,6 +26,7 @@ class MainScreenViewModel @Inject constructor(
                     val points = result.getOrThrow()
                     repository.clear()
                     repository.save(points)
+                    _event.emit(UiEvent.NavigateDetails)
                 } else {
                     val message = result.exceptionOrNull()?.message ?: "error"
                     _event.emit(UiEvent.ShowToast(message))

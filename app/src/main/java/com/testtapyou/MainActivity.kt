@@ -1,6 +1,7 @@
 package com.testtapyou
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -8,7 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.createGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.fragment
-import com.testtapyou.network.MainScreenFragment
+import com.testtapyou.feature.detailscreen.DetailFragment
+import com.testtapyou.feature.mainscreen.MainScreenFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,12 +33,20 @@ class MainActivity : AppCompatActivity() {
         val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = host.navController
 
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (!navController.popBackStack()) {
+                    finish()
+                }
+            }
+        })
+
         navController.graph = navController.createGraph(
             startDestination = "mainscreen"
         ) {
-            fragment<MainScreenFragment>("mainscreen") {
-                label = "Profile"
-            }
+            fragment<MainScreenFragment>("mainscreen", builder = {})
+
+            fragment<DetailFragment>("detail", builder = {})
         }
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="description_margin_top">32dp</dimen>
     <dimen name="description_margin">16dp</dimen>
     <dimen name="edittext_margin">16dp</dimen>
     <dimen name="btn_margin">16dp</dimen>
