@@ -13,7 +13,7 @@ class PointsRepositoryImpl(
         return remoteDataSource.getPoints(count)
     }
 
-    override suspend fun getPoints(count: Int): List<Point> {
+    override suspend fun getPoints(): List<Point> {
         return localDataStore.getPoints()
     }
 
