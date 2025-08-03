@@ -33,4 +33,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.androidx.lifecycle.viewmodel)
+
+    implementation(project(":core:data"))
 }
