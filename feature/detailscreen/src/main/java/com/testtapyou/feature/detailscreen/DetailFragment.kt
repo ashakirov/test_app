@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
 import com.testtapyou.detailscreen.R
+import com.testtapyou.feature.detailscreen.widget.GraphView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -30,6 +31,9 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val graphView = view.findViewById<GraphView>(R.id.graphView)
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.adapter = adapter
 
@@ -39,6 +43,7 @@ class DetailFragment : Fragment() {
                     when (event) {
                         is UiEvent.ShowPoints -> {
                             adapter.setData(event.points)
+                            graphView.setPoints(event.points)
                         }
                     }
                 }
