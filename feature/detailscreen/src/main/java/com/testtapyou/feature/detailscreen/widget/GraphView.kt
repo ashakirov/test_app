@@ -13,6 +13,7 @@ import com.testtapyou.data.network.model.Point
 import kotlin.math.abs
 import kotlin.math.min
 import androidx.core.graphics.toColorInt
+import com.testtapyou.detailscreen.R
 import kotlin.math.max
 
 class GraphView @JvmOverloads constructor(
@@ -20,6 +21,9 @@ class GraphView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyle: Int = 0
 ) : View(context, attrs, defStyle) {
+
+    private var strokeWidth = 0f
+    private var pointSize = 0f
 
     private val points = mutableListOf<Point>()
     private val path = Path()
@@ -64,8 +68,8 @@ class GraphView @JvmOverloads constructor(
     }
 
     private fun updateLineWidths() {
-        linePaint.strokeWidth = STROKE_WIDTH / scaleFactor
-        axisPaint.strokeWidth = STROKE_WIDTH / scaleFactor
+        linePaint.strokeWidth = strokeWidth / scaleFactor
+        axisPaint.strokeWidth = strokeWidth / scaleFactor
     }
 
     fun setPoints(points: List<Point>) {
@@ -103,7 +107,7 @@ class GraphView @JvmOverloads constructor(
 
         //точки
         points.forEach { point ->
-            canvas.drawCircle(point.x, point.y, POINT_SIZE / scaleFactor, pointPaint)
+            canvas.drawCircle(point.x, point.y, pointSize / scaleFactor, pointPaint)
         }
 
         //график
@@ -111,6 +115,9 @@ class GraphView @JvmOverloads constructor(
     }
 
     private fun initScaleAndOffsets() {
+        strokeWidth = context.resources.getDimension(R.dimen.graph_line_width)
+        pointSize = strokeWidth * 2
+
         val minX = points.first().x
         val maxX = points.last().x
 
@@ -197,8 +204,6 @@ class GraphView @JvmOverloads constructor(
 
     companion object {
         const val SINGLE_POINT_SCALE = 3f
-        const val STROKE_WIDTH = 6f
-        const val POINT_SIZE = STROKE_WIDTH * 2
         const val MIN_SCALE = 1f
 
         val BG_COLOR = "#EEEEEE".toColorInt()

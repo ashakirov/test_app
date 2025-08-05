@@ -2,4 +2,6 @@
 <resources>
     <dimen name="recycler_margin">8dp</dimen>
     <dimen name="grid_width">1dp</dimen>
+
+    <dimen name="graph_line_width">2dp</dimen>
 </resources>
