@@ -127,7 +127,7 @@ class GraphView @JvmOverloads constructor(
         scaleFactor = if (points.size == 1) {
             SINGLE_POINT_SCALE
         } else {
-            min(width / (maxX - minX), height / (maxY - minY))
+            min(width / (maxX - minX), height / (maxY - minY)) * BORDER_OFFSET_SCALE
         }
         updateLineWidths()
 
@@ -205,6 +205,7 @@ class GraphView @JvmOverloads constructor(
     companion object {
         const val SINGLE_POINT_SCALE = 3f
         const val MIN_SCALE = 1f
+        const val BORDER_OFFSET_SCALE = 0.95f
 
         val BG_COLOR = "#EEEEEE".toColorInt()
     }
