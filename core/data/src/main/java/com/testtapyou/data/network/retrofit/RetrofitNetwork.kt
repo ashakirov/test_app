@@ -27,7 +27,7 @@ class RetrofitNetwork(
         return if (result.isSuccess) {
             val response = result.getOrThrow()
             if (response.isSuccessful) {
-                Result.success(response.body()!!.points)
+                Result.success(response.body()!!.points.map { Point(it.x, it.y) })
             } else {
                 Result.failure(IOException("response code: ${response.code()}"))
             }
