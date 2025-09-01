@@ -2,7 +2,7 @@ package com.testtapyou.data.network.retrofit
 
 import com.testtapyou.core.utils.runCatchingCancelable
 import com.testtapyou.data.network.NetworkDataSource
-import com.testtapyou.data.network.model.Point
+import com.testtapyou.domain.model.Point
 import okhttp3.OkHttpClient
 import okio.IOException
 import retrofit2.Converter

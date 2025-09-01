@@ -3,7 +3,7 @@ package com.testtapyou.data.database.room
 import android.content.Context
 import androidx.room.Room
 import com.testtapyou.data.database.PointsDataStore
-import com.testtapyou.data.network.model.Point
+import com.testtapyou.domain.model.Point
 
 class RoomDataStore(
     private val appContext: Context

@@ -2,7 +2,7 @@ package com.testtapyou.feature.detailscreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.testtapyou.data.network.model.Point
+import com.testtapyou.domain.model.Point
 import com.testtapyou.domain.GetPointsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

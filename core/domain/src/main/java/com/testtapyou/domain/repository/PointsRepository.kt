@@ -1,6 +1,6 @@
-package com.testtapyou.data.repository
+package com.testtapyou.domain.repository
 
-import com.testtapyou.data.network.model.Point
+import com.testtapyou.domain.model.Point
 
 interface PointsRepository {
     suspend fun fetchPoints(count: Int): Result<List<Point>>

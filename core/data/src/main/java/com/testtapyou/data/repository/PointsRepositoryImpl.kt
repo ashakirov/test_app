@@ -2,7 +2,8 @@ package com.testtapyou.data.repository
 
 import com.testtapyou.data.database.PointsDataStore
 import com.testtapyou.data.network.NetworkDataSource
-import com.testtapyou.data.network.model.Point
+import com.testtapyou.domain.model.Point
+import com.testtapyou.domain.repository.PointsRepository
 
 class PointsRepositoryImpl(
     private val remoteDataSource: NetworkDataSource,

@@ -1,7 +1,7 @@
 package com.testtapyou.domain
 
-import com.testtapyou.data.network.model.Point
-import com.testtapyou.data.repository.PointsRepository
+import com.testtapyou.domain.model.Point
+import com.testtapyou.domain.repository.PointsRepository
 import javax.inject.Inject
 
 class LoadPointsUseCase @Inject constructor(

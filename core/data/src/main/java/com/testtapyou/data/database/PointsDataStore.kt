@@ -1,6 +1,6 @@
 package com.testtapyou.data.database
 
-import com.testtapyou.data.network.model.Point
+import com.testtapyou.domain.model.Point
 
 interface PointsDataStore {
     suspend fun getPoints(): List<Point>

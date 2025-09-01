@@ -9,7 +9,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
-import com.testtapyou.data.network.model.Point
+import com.testtapyou.domain.model.Point
 import kotlin.math.abs
 import kotlin.math.min
 import androidx.core.graphics.toColorInt

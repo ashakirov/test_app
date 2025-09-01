@@ -1,4 +1,4 @@
-package com.testtapyou.data.network.model
+package com.testtapyou.domain.model
 
 data class Point(
     val x: Float,
