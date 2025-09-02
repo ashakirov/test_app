@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.fragment
 import com.testtapyou.feature.detailscreen.DetailFragment
 import com.testtapyou.feature.mainscreen.MainScreenFragment
+import com.testtapyou.navigation.Route
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,11 +43,11 @@ class MainActivity : AppCompatActivity() {
         })
 
         navController.graph = navController.createGraph(
-            startDestination = "mainscreen"
+            startDestination = Route.Main.route
         ) {
-            fragment<MainScreenFragment>("mainscreen", builder = {})
+            fragment<MainScreenFragment>(Route.Main.route, builder = {})
 
-            fragment<DetailFragment>("detail", builder = {})
+            fragment<DetailFragment>(Route.Detail.route, builder = {})
         }
     }
 }

@@ -47,4 +47,5 @@ dependencies {
     implementation(project(":feature:mainscreen"))
     implementation(project(":feature:detailscreen"))
     implementation(project(":core:data"))
+    implementation(project(":core:navigation"))
 }

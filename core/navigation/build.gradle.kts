@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.testtapyou.mainscreen"
+    namespace = "com.testtapyou.navigation"
     compileSdk = 35
 
     defaultConfig {
@@ -15,6 +13,7 @@ android {
 
     buildTypes {
         release {
+            isMinifyEnabled = false
         }
     }
     compileOptions {
@@ -27,16 +26,7 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-    implementation(libs.androidx.lifecycle.viewmodel)
-    implementation(libs.androidx.navigation)
-
-    implementation(project(":core:data"))
-    implementation(project(":core:domain"))
-    implementation(project(":core:navigation"))
 }

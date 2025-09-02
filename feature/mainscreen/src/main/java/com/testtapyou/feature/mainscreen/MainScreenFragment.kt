@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.testtapyou.mainscreen.R
+import com.testtapyou.navigation.Route
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -48,7 +49,7 @@ class MainScreenFragment : Fragment() {
                             Toast.makeText(requireContext(), event.message, Toast.LENGTH_SHORT).show()
                         }
                         UiEvent.NavigateDetails -> {
-                            findNavController().navigate("detail")
+                            findNavController().navigate(Route.Detail.route)
                         }
                     }
                 }
