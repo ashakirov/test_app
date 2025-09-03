@@ -4,6 +4,8 @@ import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.testtapyou.domain.LoadPointsUseCase
+import com.testtapyou.mainscreen.R
+import com.testtapyou.ui.ResourceProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -12,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainScreenViewModel @Inject constructor(
-    private val loadPointsUseCase: LoadPointsUseCase
+    private val loadPointsUseCase: LoadPointsUseCase,
+    private val resourceProvider: ResourceProvider
 ) : ViewModel() {
 
     private val _event = MutableSharedFlow<UiEvent>()
@@ -25,11 +28,11 @@ class MainScreenViewModel @Inject constructor(
                 if (result.isSuccess) {
                     _event.emit(UiEvent.NavigateDetails)
                 } else {
-                    val message = result.exceptionOrNull()?.message ?: "error"
+                    val message = result.exceptionOrNull()?.message ?: resourceProvider.getString(R.string.error)
                     _event.emit(UiEvent.ShowToast(message))
                 }
             } else {
-                _event.emit(UiEvent.ShowToast("error"))
+                _event.emit(UiEvent.ShowToast(resourceProvider.getString(R.string.error)))
             }
         }
     }

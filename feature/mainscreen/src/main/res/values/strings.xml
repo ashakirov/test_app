@@ -2,4 +2,6 @@
 <resources>
     <string name="description">Запрос определенного количества точек.\nМожно запросить от 1 до 1000 точек</string>
     <string name="btn_text">Поехали</string>
+
+    <string name="error">Ошибка</string>
 </resources>
